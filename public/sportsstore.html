@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Products</title>
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+</head>
+<body ng-app="sportsStoreApp" ng-controller="sportsStoreController">
+
+	<div class="navbar navbar-inverse">
+		<a class="navbar-brand">SPORTS STORE</a>
+		<cart-summary/>
+	</div>
+
+	<div class="alert alert-danger" ng-show="data.error">
+		Error ({{data.error.status}}). The product data was not loaded.
+		<a href="sportsstore.html" class="alert-link">Click here to try again.</a>
+	</div>
+
+	<!-- <ng-include src="'products.html'"></ng-include> -->
+	<ng-view/>
+
+	<script type="text/javascript" src="lib/angular/angular.js"></script>
+	<script type="text/javascript" src="lib/angular-route/angular-route.js"></script>
+	<script type="text/javascript" src="lib/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.js"></script>
+	<script type="text/javascript" src="webapp.js"></script>
+	<script type="text/javascript" src="services/products.client.service.js"></script>
+	<script type="text/javascript" src="services/cart.client.service.js"></script>
+	<script type="text/javascript" src="controllers/sportsStore.client.controller.js"></script>
+	<script type="text/javascript" src="controllers/products.client.controller.js"></script>
+	<script type="text/javascript" src="controllers/checkout.client.controller.js"></script>
+	<script type="text/javascript" src="filters/products.client.filter.js"></script>
+	<script type="text/javascript" src="routes/client.route.js"></script>
+	<script type="text/javascript"></script>
+
+</body>
+</html>

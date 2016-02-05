@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>News-SCMS</title>
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/common.css">
+	<link rel="stylesheet" type="text/css" href="css/news.css">
+</head>
+<body ng-app="webapp">
+
+	<div class="container" ng-controller="NewsController">
+		<h2>News</h2>
+
+		<div class="command">
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newsNewModal">新建</button>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newsEditModal">修改</button>
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newsDelModal">删除</button>
+		</div>
+
+		<div class="list-group newslist-list-group">
+			<div class="list-group-item" ng-repeat="news in list">
+				<h3><label for="newsttl{{$index}}" name="newsttl" class="name"><input type="checkbox" class="inl" id="newsttl{{$index}}"/>{{news.title}}</label></h3>
+				<p>{{news.content}}</p>
+				<p>
+					<small ng-bind="news.createTime"></small>
+				</p>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="modal fade" id="newsNewModal" tabindex="-1" role="dialog" aria-labelledby="newsNewModal">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+							<h4 class="modal-title" id="mySmallModalLabel">新建</h4>
+				        </div>
+				        <div class="modal-body">
+							<form>
+								<div class="form-group">
+									<label for="newstitle">title</label>
+									<input type="text" class="form-control" id="newstitle" ng-model="news.title" placeholder="News Title">
+								</div>
+								<div class="form-group">
+									<label for="newscontent">Password</label>
+									<textarea class="form-control" rows="3" id="newscontent" ng-model="news.content" placeholder="News Textarea"></textarea>
+								</div>
+								<button type="button" class="btn btn-default" ng-click="newNews()" data-dismiss="modal">保存并关闭</button>
+								<button type="button" class="btn btn-default" ng-click="newNews()">保存并继续</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+								
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="modal fade" id="newsEditModal" tabindex="-1" role="dialog" aria-labelledby="newsEditModal">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+							<h4 class="modal-title" id="mySmallModalLabel">修改</h4>
+				        </div>
+				        <div class="modal-body">
+							<form>
+								<div class="form-group">
+									<label for="newstitle">title</label>
+									<input type="text" class="form-control" id="newstitle" ng-model="news.title" placeholder="News Title">
+								</div>
+								<div class="form-group">
+									<label for="newscontent">Password</label>
+									<textarea class="form-control" rows="3" id="newscontent" ng-model="news.content" placeholder="News Textarea"></textarea>
+								</div>
+								<button type="button" class="btn btn-default" ng-click="saveNews()" data-dismiss="modal">保存</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+								
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			
+		</div>
+
+
+
+	</div>
+	<script type="text/javascript" src="lib/angular/angular.js"></script>
+	<script type="text/javascript" src="lib/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.js"></script>
+	<script type="text/javascript" src="webapp.js"></script>
+	<script type="text/javascript" src="services/news.client.service.js"></script>
+	<script type="text/javascript" src="controllers/news.client.controller.js"></script>
+	<script type="text/javascript">
+	// var app=angular.module('webapp');
+	// var app=angular.module('webapp',[]);
+	// console.log(app);
+	// console.log(app1);
+	// console.log(app==app1);
+
+</script>
+
+</body>
+</html>

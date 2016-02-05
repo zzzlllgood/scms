@@ -1,0 +1,16 @@
+{
+  "name": "scms",
+  "version": "0.0.0",
+  "description": "",
+  "main": "bin/www",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "BSD",
+  "dependencies": {
+    "express": "~4.13.3",
+    "body-parser": "~1.14.2",
+    "mongoose": "~4.3.5"
+  }
+}
